@@ -11,7 +11,7 @@ return {
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup("lsp-config", {clear = true}),
 
-      callback = function()
+      callback = function(event)
         local map = function(keys, func, desc)
           vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
@@ -22,10 +22,21 @@ return {
       end,
     })
 
+    local cmp = require('cmp')
+
+    cmp.setup({
+      sources = {
+        {name = 'nvim_lsp'},
+      },
+      mapping = cmp.mapping.preset.insert({}),
+    })
+
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-    local servers = {}
+    local servers = {
+      rust_analyzer = {},
+    }
 
     ---
     -- mason
