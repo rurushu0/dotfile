@@ -29,3 +29,4 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 Map("v", "<", "<gv")
 Map("v", ">", ">gv")
 
+Map("n", "<leader>w", ":w<CR>", { desc = "[S]ave current buffer"})
