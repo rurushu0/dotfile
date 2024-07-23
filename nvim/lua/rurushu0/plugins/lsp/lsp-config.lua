@@ -6,6 +6,7 @@ return {
     { "WhoIsSethDaniel/mason-tool-installer.nvim", config = true },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
+    { 'nvim-java/nvim-java'},
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -34,8 +35,11 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+    require('java').setup()
+
     local servers = {
       rust_analyzer = {},
+      jdtls = {},
     }
 
     ---
