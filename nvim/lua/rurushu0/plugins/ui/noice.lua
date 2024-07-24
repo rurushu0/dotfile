@@ -9,7 +9,7 @@ return {
     --   If not available, we use `mini` as the fallback
     "rcarriga/nvim-notify",
     "nvim-telescope/telescope.nvim",
-    --    "nvim-telescope/telescope-ui-select.nvim", 
+    "nvim-telescope/telescope-ui-select.nvim", 
   },
   
   config = function()
