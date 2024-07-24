@@ -8,6 +8,7 @@ end
 
 -- Editing
 Map("i", "jk", "<ESC>", { desc = "Exit INSERT mode" })
+Map("i", "jkw", "<ESC>:w<CR>", { desc = "Exit INSERT mode and save buffer" })
 
 -- Tab
 Map("n", "<TAB>", ":bn<CR>")
