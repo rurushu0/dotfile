@@ -7,8 +7,11 @@ function Map(mode, lhs, rhs, opts)
 end
 
 -- Editing
-Map("i", "jk", "<ESC>", { desc = "Exit INSERT mode" })
-Map("i", "jkw", "<ESC>:w<CR>", { desc = "Exit INSERT mode and save buffer" })
+Map("i", "jj", "<ESC>", { desc = "Exit INSERT mode" })
+Map("i", "jjw", "<ESC>:w<CR>", { desc = "Exit INSERT mode and save buffer" })
+
+-- Buffer Management
+Map("n", "<leader>w", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
 
 -- Tab
 Map("n", "<TAB>", ":bn<CR>")
@@ -30,4 +33,4 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 Map("v", "<", "<gv")
 Map("v", ">", ">gv")
 
-Map("n", "<leader>w", ":w<CR>", { desc = "[S]ave current buffer"})
+-- Map("n", "<leader>w", ":w<CR>", { desc = "[S]ave current buffer"})
