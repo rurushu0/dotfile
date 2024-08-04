@@ -1,9 +1,9 @@
 function Map(mode, lhs, rhs, opts)
-    local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.keymap.set(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- Editing
@@ -18,6 +18,11 @@ Map("n", "<TAB>", ":bn<CR>")
 Map("n", "<S-TAB>", ":bp<CR>")
 Map("n", "<leader>bd", ":bd<CR>") -- from Doom Emacs
 
+-- Windows Resizing
+Map("n", "<M-,>", "<C-w>5<")
+Map("n", "<M-.>", "<C-w>5>")
+Map("n", "<M-t>", "<C-W>+")
+Map("n", "<M-s>", "<C-W>-")
 
 -- Windows movement
 -- Map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -33,4 +38,5 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 Map("v", "<", "<gv")
 Map("v", ">", ">gv")
 
+Map("n", "<leader>h", ":nohlsearch<CR>")
 -- Map("n", "<leader>w", ":w<CR>", { desc = "[S]ave current buffer"})

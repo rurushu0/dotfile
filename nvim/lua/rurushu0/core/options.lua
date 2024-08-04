@@ -23,12 +23,17 @@ opt.hlsearch = true
 opt.termguicolors = true
 
 -- backspace
-opt.backspace = "indent,eol,start"
+opt.backspace = "2"
 
 -- clipboard
 opt.clipboard:append "unnamedplus" -- use system clipboard as default register
 
+opt.showcmd = true
+opt.laststatus = 2
+
+opt.autoread = true
+opt.autowrite = true
+
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
-

@@ -7,15 +7,16 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
 
-  -- opts = {
-  --   highlight = { enable = true },
-  --   indent = { enable = true },
-  --   autotag = { enable = true },
-  --   ensure_installed = {
-  --     'bash',
-  --     'lua',
-  --   },
-  -- },
+  opts = {
+    should_enable_vim_regex = false,
+    --   highlight = { enable = true },
+    --   indent = { enable = true },
+    --   autotag = { enable = true },
+    --   ensure_installed = {
+    --     'bash',
+    --     'lua',
+    --   },
+  },
 
   config = function()
     local treesitter = require "nvim-treesitter.configs"
@@ -59,5 +60,7 @@ return {
         "yaml",
       },
     }
+
+    treesitter.start()
   end,
 }

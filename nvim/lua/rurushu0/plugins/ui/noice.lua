@@ -9,25 +9,38 @@ return {
     --   If not available, we use `mini` as the fallback
     "rcarriga/nvim-notify",
     "nvim-telescope/telescope.nvim",
-    "nvim-telescope/telescope-ui-select.nvim", 
+    "nvim-telescope/telescope-ui-select.nvim",
   },
-  
+
   config = function()
     -- Dismiss Noice Message
-    vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
+    vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
 
     require("telescope").setup {
       extensions = {
         ["ui-select"] = {
-          require("telescope.themes").get_dropdown {}
-        }
-      }
+          require("telescope.themes").get_dropdown {},
+        },
+      },
     }
     vim.g.zoxide_use_select = true
-    
-    require("telescope").load_extension("noice")
 
-    require("noice").setup({
+    require("telescope").load_extension "noice"
+
+    require("noice").setup {
+
+      routes = {
+        {
+          view = "notify",
+          filter = {
+            event = "msg_showmode",
+            kind = "",
+            find = "written",
+          },
+          opts = { skip = true },
+        },
+      },
+
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
@@ -44,8 +57,8 @@ return {
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
-    })
+    }
 
-    require("telescope").load_extension("noice")
+    require("telescope").load_extension "noice"
   end,
 }
