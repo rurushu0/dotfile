@@ -24,6 +24,7 @@ require("lazy").setup {
     { import = "rurushu0.plugins.lsp" },
     { import = "rurushu0.plugins.formatting" },
     { import = "rurushu0.plugins.db" },
+    { import = "rurushu0.plugins.term" },
   },
 
   checker == {
